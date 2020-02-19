@@ -1,10 +1,10 @@
 language: java
-
-jdk: openjdk8
-
+jdk:
+  - oraclejdk8
 script:
     - echo "Hola travis"
     - mvn package
-    - ssh-keyscan -H 34.217.211.30 >> ~/.ssh/known_hosts
-    - ssh-keyscan -H ec2-34-217-211-30.us-west-2.compute.amazonaws.com >> ~/.ssh/known_hosts
-    - scp -i acceso_instancia.pem target/Netflix-1.0-SNAPSHOT.war ubuntu@34.217.211.30:/tmp
+    - chmod 400 intancia.pem
+    - ssh-keyscan -H 3.135.128.20 >> ~/.ssh/known_hosts
+    - ssh-keyscan -H ec2-3-135-128-20.us-east-2.compute.amazonaws.com >> ~/.ssh/known_hosts
+    - scp -i instancia.pem target/Netflix-1.0-SNAPSHOT.war ubuntu@3.135.128.20:/tmp
